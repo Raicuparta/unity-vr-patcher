@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AssetsTools.NET;
 using AssetsTools.NET.Extra;
 
@@ -21,10 +18,11 @@ namespace UnityVRPatcher
                 var gamePath = $"{gameExePath}/..";
                 var gameName = Path.GetFileNameWithoutExtension(gameExePath);
                 var dataPath = Path.Combine(gamePath, $"{gameName}_Data/");
-                var pluginsPath = Path.Combine(dataPath, "Plugins");
                 var gameManagersPath = Path.Combine(dataPath, $"globalgamemanagers");
                 var patcherPath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
                 var classDataPath = Path.Combine(patcherPath, "classdata.tpk");
+
+                CopyPlugins(patcherPath, dataPath);
                 PatchVR(gameManagersPath, classDataPath);
             }
             finally
@@ -33,8 +31,26 @@ namespace UnityVRPatcher
             }
         }
 
+        static void CopyPlugins(string patcherPath, string dataPath)
+        {
+            Console.WriteLine("Copying plugins...");
+
+            var gamePluginsPath = Path.Combine(dataPath, "Plugins");
+            var patcherPluginsPath = Path.Combine(patcherPath, "Plugins");
+            var pluginFilePaths = Directory.GetFiles(patcherPluginsPath);
+            Console.WriteLine($"Found plugins: {string.Join(", ", pluginFilePaths)}");
+            foreach (var filePath in pluginFilePaths)
+            {
+                File.Copy(filePath, Path.Combine(gamePluginsPath, Path.GetFileName(filePath)), true);
+            }
+        }
+
         static void PatchVR(string gameManagersPath, string classDataPath)
         {
+            Console.WriteLine("Patching globalgamemanagers...");
+            Console.WriteLine($"Using globalgamemanagers file from path '{gameManagersPath}'");
+            Console.WriteLine($"Using classData file from path '{classDataPath}'");
+
             AssetsManager am = new AssetsManager();
             am.LoadClassPackage(classDataPath);
             AssetsFileInstance ggm = am.LoadAssetsFile(gameManagersPath, false);
