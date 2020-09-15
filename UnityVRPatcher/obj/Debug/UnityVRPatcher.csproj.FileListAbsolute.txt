@@ -1,0 +1,12 @@
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\bin\Debug\UnityVRPatcher.exe.config
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\bin\Debug\UnityVRPatcher.exe
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\bin\Debug\UnityVRPatcher.pdb
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\bin\Debug\AssetsTools.NET.dll
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\bin\Debug\Mono.Cecil.dll
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\bin\Debug\Mono.Cecil.Rocks.dll
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\obj\Debug\UnityVRPatcher.csproj.CoreCompileInputs.cache
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\obj\Debug\UnityVRPatcher.csproj.CopyComplete
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\obj\Debug\UnityVRPatcher.exe
+C:\Users\ricar\repos\UnityVRPatcher\UnityVRPatcher\obj\Debug\UnityVRPatcher.pdb
