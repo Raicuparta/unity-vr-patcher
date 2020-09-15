@@ -57,7 +57,12 @@ namespace UnityVRPatcher
         {
             Console.WriteLine($"Backing up '{gameManagersPath}'...");
             var backupPath = gameManagersPath + ".bak";
-            File.Copy(gameManagersPath, backupPath, true);
+            if (File.Exists(backupPath))
+            {
+                Console.WriteLine($"Backup already exists.");
+                return;
+            }
+            File.Copy(gameManagersPath, backupPath);
             Console.WriteLine($"Created backup in '{backupPath}'");
             return backupPath;
         }
